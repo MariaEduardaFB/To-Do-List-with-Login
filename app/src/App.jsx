@@ -1,27 +1,20 @@
-import { useState } from 'react'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import SignIn from './SignIn.jsx';
+import SignUp from './SignUp.jsx';
+import Tasks from './Tasks.jsx'
 
 function App() {
-
   return (
-    <div className='sign-in'>
-      <h2>Sign In</h2>
-      <form className='signIn-form'>
-        <div className='email'>
-          <h5>Email</h5>
-          <input className='input-email'type='email' name='email' required></input>
-        </div>
-        
-        <div className='password'>
-        <h5>Password</h5>
-          <input className='input-password' type='password' name='password' required></input>
-        </div>
-
-        <button type='submit' className='btn-sign-in'>Sign In</button>
-      </form>
-    </div>
-  )
+    <Router>
+      <Routes>
+        <Route path="/sign-in" element={<SignIn />} />
+        <Route path="/sign-up" element={<SignUp />} />
+        <Route path="/tasks" element={<Tasks />} />
+        {/* Outras rotas aqui, se necessário */}
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;
